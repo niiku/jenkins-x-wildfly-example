@@ -36,6 +36,11 @@
               		  <warName>ROOT</warName>
                 </configuration>
             </plugin>
-        </plugins>
+        
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <version>2.8.2</version></plugin>
+    </plugins>
       </build>
 </project>
