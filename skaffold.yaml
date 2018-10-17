@@ -1,0 +1,31 @@
+apiVersion: skaffold/v1alpha2
+kind: Config
+build:
+  tagPolicy:
+    envTemplate:
+      template: "{{.DOCKER_REGISTRY}}/niiku/jenkins-x-wildfly-example:{{.VERSION}}"
+  artifacts:
+  - imageName: changeme
+    workspace: .
+    docker: {}
+  local: {}
+deploy:
+  kubectl:
+    manifests:
+profiles:
+- name: dev
+  build:
+    tagPolicy:
+      envTemplate:
+        template: "{{.DOCKER_REGISTRY}}/niiku/jenkins-x-wildfly-example:{{.DIGEST_HEX}}"
+    artifacts:
+    - docker: {}
+    local: {}
+  deploy:
+    helm:
+      releases:
+      - name: jenkins-x-wildfly-example
+        chartPath: charts/jenkins-x-wildfly-example
+        setValueTemplates:
+          image.repository: "{{.DOCKER_REGISTRY}}/niiku/jenkins-x-wildfly-example"
+          image.tag: "{{.DIGEST_HEX}}"
