@@ -1,7 +1,6 @@
-openshift-jee-sample
+jenkins-x-wildfly-example
 ====================
 
-A sample app to be deployed on openshift environments
+A sample wildfly app to be deployed with jenkins x
 
-Note: to build this repository with maven you must specify "-Popenshift", eg "mvn clean package -Popenshift"
 
