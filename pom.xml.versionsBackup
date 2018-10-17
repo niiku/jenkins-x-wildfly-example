@@ -5,7 +5,7 @@
     <groupId>io.nikio.jx</groupId>
     <artifactId>wildfly-example</artifactId>
     <packaging>war</packaging>
-    <version>1.0.2</version>
+    <version>1.0</version>
     <name>wildfly-example</name>
   
     <properties>
