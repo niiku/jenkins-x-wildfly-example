@@ -4,7 +4,7 @@ pipeline {
     }
     environment {
       ORG               = 'niiku'
-      APP_NAME          = 'wildfly-example'
+      APP_NAME          = 'jenkins-x-wildfly-example'
       CHARTMUSEUM_CREDS = credentials('jenkins-x-chartmuseum')
     }
     stages {
@@ -50,7 +50,7 @@ pipeline {
             sh "echo \$(jx-release-version) > VERSION"
             sh "mvn versions:set -DnewVersion=\$(cat VERSION)"
           }
-          dir ('./charts/wildfly-example') {
+          dir ('./charts/jenkins-x-wildfly-example') {
             container('maven') {
               sh "make tag"
             }
@@ -70,7 +70,7 @@ pipeline {
           branch 'master'
         }
         steps {
-          dir ('./charts/wildfly-example') {
+          dir ('./charts/jenkins-x-wildfly-example') {
             container('maven') {
               sh 'jx step changelog --version v\$(cat ../../VERSION)'
 
