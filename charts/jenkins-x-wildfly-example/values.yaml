@@ -7,7 +7,7 @@ image:
   tag: dev
   pullPolicy: IfNotPresent
 service:
-  name: wildfly-example
+  name: jenkins-x-wildfly-example
   type: ClusterIP
   externalPort: 80
   internalPort: 8080
@@ -21,7 +21,7 @@ resources:
   requests:
     cpu: 400m
     memory: 512Mi
-probePath: /
+probePath: /actuator/health
 livenessProbe:
   initialDelaySeconds: 60
   periodSeconds: 10
