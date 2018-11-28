@@ -7,7 +7,7 @@ image:
   tag: dev
   pullPolicy: IfNotPresent
 service:
-  name: jenkins-x-wildfly-example
+  name: wildfly-example
   type: ClusterIP
   externalPort: 80
   internalPort: 8080

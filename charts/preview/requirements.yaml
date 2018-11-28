@@ -9,5 +9,5 @@ dependencies:
   repository: https://chartmuseum.build.cd.jenkins-x.io
   version: 2.3.56
 - alias: preview
-  name: jenkins-x-wildfly-example
-  repository: file://../jenkins-x-wildfly-example
+  name: wildfly-example
+  repository: file://../wildfly-example
